@@ -1,0 +1,119 @@
+<div class="form-task-card-section">
+  <!-- side bar section -->
+
+  <div class="main-section-form-side-bar">
+    <div class="side-bar-section">
+      <div>
+        <div class="side-bar-body">
+          <button (click)="deleteAllTask()" class="side-bar-button">
+            Remove all
+          </button>
+          <h2 *ngIf="taskData" class="side-bar-count">{{ taskData.length }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- form section -->
+
+    <div class="form-secton">
+      <h1 class="form-header">Task Form Management</h1>
+      <form [formGroup]="taskForm">
+        <!-- title field -->
+        <div class="form-group">
+          <label>Title: </label>
+          <input
+            type="text"
+            placeholder="Title"
+            required
+            formControlName="title"
+          />
+        </div>
+
+        <!-- Description field -->
+        <div class="form-group">
+          <label> Description: </label>
+          <textarea
+            placeholder="Description"
+            formControlName="description"
+            id=""
+            cols="30"
+            rows="10"
+            required
+          ></textarea>
+        </div>
+        <!-- Created By field -->
+
+        <div class="form-group">
+          <label> Created by: </label>
+          <input
+            type="text"
+            formControlName="createdBy"
+            placeholder="Created By"
+            required
+          />
+        </div>
+        <!-- Assigned To -->
+
+        <div class="form-group">
+          <label> Assigned to: </label>
+          <input
+            type="text"
+            formControlName="assignedTo"
+            placeholder="Assigned To"
+            required
+          />
+        </div>
+        <div class="footer-button">
+          <button
+            class="my-button"
+            [disabled]="taskForm.invalid"
+            type="submit"
+            (click)="createTask()"
+          >
+            Submit
+          </button>
+          <button
+            class="my-button"
+            style="margin-left: 12px"
+            type="submit"
+            (click)="update()"
+          >
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- info section -->
+
+  <div class="task-card-info-section">
+    <div
+      class="task-card-info"
+      *ngFor="let item of taskData; let i = index"
+      id="{{ i }}"
+    >
+      <div class="task-card-container">
+        <div class="task-card-body-content">
+          <h1 class="task-card-title">{{ item.title }}</h1>
+          <p class="task-card-description">
+            {{ item.description }}
+          </p>
+        </div>
+        <div class="task-card-content-footer">
+          <h2 class="task-card-created-by">{{ item.createdBy }}</h2>
+          <h3 class="task-card-assigned-to">{{ item.assignedTo }}</h3>
+        </div>
+        <div class="delete-update-button">
+          <button (click)="deleteTask(item)">Delete</button>
+          <button (click)="editTask(item)" style="margin-left: 12px">
+            Edit
+          </button>
+        </div>
+      </div>
+      <!-- <button (click)="deleteAllTask()" class="side-bar-button">
+        Remove all
+      </button> -->
+    </div>
+  </div>
+</div>

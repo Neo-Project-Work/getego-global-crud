@@ -1,0 +1,113 @@
+.side-bar-section {
+  background-color: red;
+  height: 600px;
+  margin-right: 13px;
+  margin-left: 12px;
+  position: relative;
+}
+
+.main-section-form-side-bar {
+  display: flex;
+}
+
+.side-bar-button {
+  width: -webkit-fill-available;
+  border-radius: 50%;
+  height: 73px;
+  font-family: serif;
+  margin-top: 12px;
+  padding: 9px;
+  cursor: pointer;
+}
+
+.form-task-card-section {
+  display: flex;
+
+  .form-secton {
+    background-color: white;
+    border: 3px solid #bacdd8;
+    padding: 8px;
+    width: 600px;
+    height: 600px;
+    border-radius: 12px;
+  }
+  .form-header {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 21px;
+    padding-bottom: 12px;
+    text-align: center;
+  }
+  label {
+    display: block;
+    margin: 0.5em 0;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .my-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .my-button:hover {
+    background-color: #45a049;
+  }
+
+  .footer-button {
+    padding-top: 37px;
+    padding-left: 28%;
+  }
+
+  input,
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .task-card-info-section {
+    width: 38%;
+  }
+}
+
+.task-card-info {
+  background-color: white;
+  border: 1px solid #bacdd8;
+  padding: 24px;
+  border-radius: 12px;
+  margin-left: 80px;
+  margin-bottom: 50px;
+
+  .task-card-content-footer {
+    display: flex;
+  }
+
+  .task-card-assigned-to {
+    margin-left: auto;
+    font-family: monospace;
+  }
+  .task-card-created-by {
+    font-family: monospace;
+  }
+}
+.delete-update-button {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.side-bar-count {
+  position: absolute;
+  bottom: 21%;
+  right: 0;
+  left: 39px;
+}
