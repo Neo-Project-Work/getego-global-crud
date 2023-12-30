@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ShowroomComponent } from '../showroom/showroom.component';
 import {
   FormBuilder,
   FormGroup,
@@ -14,14 +13,15 @@ import { TaskModel } from './task.info.mode';
 @Component({
   selector: 'app-task-card-info',
   standalone: true,
+  providers: [ServerService],
   templateUrl: './task-card-info.component.html',
   styleUrl: './task-card-info.component.scss',
   imports: [
-    ShowroomComponent,
     ReactiveFormsModule,
     FormsModule,
     CommonModule,
     SideBarComponent,
+    
   ],
 })
 export class TaskCardInfoComponent implements OnInit {
@@ -51,16 +51,10 @@ export class TaskCardInfoComponent implements OnInit {
     this.taskObj.createdBy = this.taskForm.value.createdBy;
     this.taskObj.assignedTo = this.taskForm.value.assignedTo;
 
-    this.serverService.create(this.taskObj).subscribe(
-      (res) => {
-        this.getAllTask();
-        this.taskForm.reset();
-
-      },
-      (err) => {
-        alert('Something went wrong' + err);
-      }
-    );
+    this.serverService.create(this.taskObj).subscribe((res) => {
+      this.getAllTask();
+      this.taskForm.reset();
+    });
   }
 
   getAllTask() {
@@ -99,7 +93,7 @@ export class TaskCardInfoComponent implements OnInit {
 
   deleteAllTask() {
     this.serverService.getAll().subscribe((res) => {
-      res.forEach((id: any) => this.deleteTask(id))
+      res.forEach((id: any) => this.deleteTask(id));
     });
   }
 }

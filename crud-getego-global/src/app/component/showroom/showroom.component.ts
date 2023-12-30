@@ -12,30 +12,12 @@ import { ServerService } from '../../server.service';
   templateUrl: './showroom.component.html',
   styleUrl: './showroom.component.scss',
   imports: [
-    ReactiveFormsModule,
-    FormsModule,
+    // ReactiveFormsModule,
+    // FormsModule,
     TaskCardInfoComponent,
-    SideBarComponent,
     CommonModule,
   ],
 })
-export class ShowroomComponent implements OnInit {
-  constructor(private http: HttpClient, private imageService: ServerService) {}
-  marsImage!: string;
-
-  ngOnInit(): void {
-    this.loadMarsImage();
-  }
-
-  // loadMarsImage() {
-  //   this.imageService.getMarsImage().subscribe(res => {
-  //     // this.marsImage =res
-  //     console.log(res)
-  //   });
-  // }
-
-  async loadMarsImage() {
-    let res = await fetch('https://source.unsplash.com/random/800x600/?mars');
-    return res.json().then((data) => console.log('image',data));
-  }
+export class ShowroomComponent {
+  constructor() {}
 }
